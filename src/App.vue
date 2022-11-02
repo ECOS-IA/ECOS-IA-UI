@@ -11,8 +11,7 @@ import AsyncButton from "./components/AsyncButton"
 
 export default {
   name: 'App',
-  components: { AsyncButton, BaseButton },
-
+  components: { AsyncButton, BaseButton }
 }
 </script>
 
