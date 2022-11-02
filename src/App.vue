@@ -7,12 +7,10 @@
 <script>
 
 import BaseButton from "./components/BaseButton";
-import AsyncButton from "./components/AsyncButton"
 
 export default {
   name: 'App',
-  components: { AsyncButton, BaseButton },
-
+  components: { BaseButton },
 }
 </script>
 
