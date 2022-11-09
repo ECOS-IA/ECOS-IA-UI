@@ -17,7 +17,7 @@ client.connect(function(err) {
   console.log('connected as id ' + client.threadId);
 })
 
-router.get('/alertstest', async (req, res) => {
+router.get('/', async (req, res) => {
 
   const sql = "SELECT alert.id, time, zone FROM alert join capteur on alert.id_capteur = capteur.id"
   await client.query(sql, (error, results, fields) => {

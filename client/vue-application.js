@@ -22,7 +22,7 @@ var app = new Vue({
     alerts: []
   },
   async mounted () {
-    const res = await axios.get('/alerts')
+    const res = await axios.get('/api')
     // const res = await axios.get('/alertstest')
     this.alerts = res.data
   },
