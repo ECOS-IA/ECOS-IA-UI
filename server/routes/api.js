@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mysql = require('mysql')
+const axios = require("axios")
 
 const client = mysql.createConnection({
   host: 'localhost',
@@ -18,12 +19,10 @@ client.connect(function(err) {
 })
 
 router.get('/', async (req, res) => {
-
-  const sql = "SELECT alert.id, time, zone FROM alert join capteur on alert.id_capteur = capteur.id"
-  await client.query(sql, (error, results, fields) => {
-    req.session.alerts = results
-    res.json(req.session.alerts)
-  })
+  const alerts = await axios.get(`http://localhost:4000/`)
+  console.log(alerts.data)
+  req.session.alerts = alerts.data
+  res.json(req.session.alerts)
 
 })
 
