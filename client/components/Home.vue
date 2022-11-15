@@ -14,9 +14,7 @@
           </div>
         </div>
         <div class="col-lg-9 no-float" id="alert">
-          
-
-          
+          <h1 v-if="newalert.id">ALERT ZONE {{ newalert.zone }}</h1>
         </div>
       </div>
     </div>
@@ -27,7 +25,8 @@
 
 module.exports = {
     props: {
-      alerts: { type: Array, default: [] }
+      alerts: { type: Array, default: [] },
+      newalert: { type: Object }
     },
     data () {
       return {
@@ -43,7 +42,7 @@ module.exports = {
 <style>
 
   #history {
-    background-color: blueviolet;
+    background-color: white;
     height: 100%;
   }
 
