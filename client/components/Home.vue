@@ -5,19 +5,24 @@
       <div class="row justify-content-center h-100">
         <div class="col-xl-3 hidden-md-down" id="history">
           <div class="row">
-            <h1>Page d'accueil</h1>
+            <h1>Historique</h1>
           </div>
           <div class="row">
             <section v-for="alert in alerts" :key="alert.id">
-              <div class="alerts" v-onclick="displayAlert(alert)">
-                <p>Alert détecté le {{ alert.time }} - zone {{ alert.zone }}</p>
-              </div>
+              <button class="alerts" @click="displayAlert(alert)">
+                <p>Alerte détecté le {{ alert.time }} - zone {{ alert.zone }}</p>
+              </button>
             </section>
           </div>
         </div>
         <div class="col-xl-9 no-float" id="alert">
-          <h1 v-if="newalert.id">ALERT ZONE {{ newalert.zone }}</h1>
-          <div v-if="alert">{{ alert.zone }}</div>
+          <div v-if="newalert.id">
+            <h1 v-if="newalert.id">ALERT ZONE {{ newalert.zone }}</h1>
+          </div>
+          <div v-else-if="historyAlert.id">
+            <p>Alerte détecté le {{ historyAlert.time }} en zone {{ historyAlert.zone }}</p>
+            <button @click="quit()">OK</button>
+          </div>
         </div>
       </div>
     </div>
@@ -33,12 +38,15 @@ module.exports = {
     },
     data () {
       return {
-        alert : {}
+        historyAlert : {}
       }
     },
     methods: {
       displayAlert (alert) {
-        this.alert = alert
+        this.historyAlert = alert
+      },
+      quit() {
+        this.historyAlert = {}
       }
     }
   }
@@ -49,6 +57,7 @@ module.exports = {
   #history {
     background-color: white;
     height: 100%;
+    overflow-y: scroll;
   }
 
   #alert {
