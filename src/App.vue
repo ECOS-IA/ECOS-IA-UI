@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+    {{name}}
   </div>
 </template>
 
@@ -11,6 +11,15 @@ import BaseButton from "./components/BaseButton";
 export default {
   name: 'App',
   components: { BaseButton },
+  data: () => {
+    name: "test"
+  },
+  methods: {
+    test: () => {
+      console.log("f")
+    }
+
+  }
 }
 </script>
 
