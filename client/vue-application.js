@@ -30,18 +30,18 @@ var app = new Vue({
     
     // nouvelle alerte
     setInterval(async () => {
-      const alerts = await axios.get(`http://${SERVER_IP}:4000/`)
+      const alerts = await axios.get(`http://${SERVER_IP}:4000/alert/all?order=desc`)
       if (this.alerts.slice(-1)[0]["id"] != alerts.data[0]["id"]) {
         this.newalert = alerts.data[0]
         this.alerts.push(alerts.data[0])
       }
-    }, 5000)
+    }, 3000)
 
     // enregistrement dans l'historique
     if (this.newalert != {}) {
       setInterval(async () => {
         this.newalert = {}
-      }, 5000)
+      }, 8000)
     }
   },
   methods: {

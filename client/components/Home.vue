@@ -4,7 +4,7 @@
     <div class="container-fluid h-100">
       <div class="row justify-content-center h-100">
 
-        <div class="col-xl-4" id="history">
+        <div class="col-xl-3" id="history">
           <div class="row" id="historyTitle">
             <div class="col-xl-12 d-flex justify-content-center" >
               <h1>Historique</h1>
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <div class="col-xl-8" id="alert">
+        <div class="col-xl-9" id="alert">
           <div class="container-fluid h-100 d-flex align-items-center justify-content-center">
             <div class="row">
 
