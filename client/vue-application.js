@@ -1,4 +1,5 @@
 const Accueil = window.httpVueLoader('./components/Home.vue')
+const SERVER_IP = "localhost"
 
 const routes = [
   { path: '/', component: Accueil}
@@ -23,13 +24,13 @@ var app = new Vue({
     newalert: {}
   },
   async mounted () {
-    const alerts = await axios.get(`http://localhost:4000/allAlerts`)
+    const alerts = await axios.get(`http://${SERVER_IP}:4000/alert/all`)
     this.alerts = alerts.data
     this.newalert = {}
     
     // nouvelle alerte
     setInterval(async () => {
-      const alerts = await axios.get(`http://localhost:4000/`)
+      const alerts = await axios.get(`http://${SERVER_IP}:4000/`)
       if (this.alerts.slice(-1)[0]["id"] != alerts.data[0]["id"]) {
         this.newalert = alerts.data[0]
         this.alerts.push(alerts.data[0])

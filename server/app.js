@@ -3,7 +3,7 @@ const session = require('express-session')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const router = require('./routes/api.js')
+//const router = require('./routes/api.js')
 
 const app = express()
 
@@ -14,6 +14,6 @@ app.use(cookieParser())
 app.use(session({ secret: 'grehjznejzkhgjrez', saveUninitialized: false, resave: false }))
 app.use(express.static(path.join(__dirname, '../client')))
 
-app.use('/api/', router)
+//app.use('/api/', router)
 
 module.exports = app
