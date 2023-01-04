@@ -14,7 +14,7 @@
             <div class="col-xl-10 ml-auto mr-auto">
               <section v-for="alert in alerts.slice().reverse()" :key="alert.id">
                 <button class="button" @click="displayAlert(alert)">
-                  <p>{{ alert.time }} - zone {{ alert.zone }}</p>
+                  <p>{{ alert.time }} - zone {{ alert.zone }}: {{ alert.label}} </p>
                 </button>
               </section>
             </div>
