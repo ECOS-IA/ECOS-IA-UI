@@ -11,10 +11,14 @@
             </div>
           </div>
           <div class="row" id="listOfAlerts">
-            <div class="col-xl-10 ml-auto mr-auto">
+            <div class="col-xl-12 ml-auto mr-auto">
               <section v-for="alert in alerts.slice().reverse()" :key="alert.id">
                 <button class="button" @click="displayAlert(alert)">
-                  <p>{{ alert.time }} - zone {{ alert.zone }}: {{ alert.label}} </p>
+                  <div class="alertContent">
+                    {{ alert.time }}<br>
+                    zone {{ alert.zone }}<br>
+                    {{ alert.label}}
+                  </div>
                 </button>
               </section>
             </div>
@@ -97,8 +101,12 @@ module.exports = {
     margin-top: 50px;
   }
 
+  .alertContent {
+    word-break: break-all;
+    text-align: left;
+  }
+
   .button {
-    height: 45px;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2.5px;

@@ -1,5 +1,6 @@
 const Accueil = window.httpVueLoader('./components/Home.vue')
-const SERVER_IP = "10.3.206.255"
+// const SERVER_IP = "10.3.206.255"
+const SERVER_IP = "localhost"
 
 const routes = [
   { path: '/', component: Accueil}
