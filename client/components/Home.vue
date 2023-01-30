@@ -15,9 +15,13 @@
               <section v-for="alert in alerts.slice().reverse()" :key="alert.id">
                 <button class="button" @click="displayAlert(alert)">
                   <div class="alertContent">
-                    {{ alert.time }}<br>
-                    zone {{ alert.zone }}<br>
-                    {{ alert.label}}
+                    <div class="alertTime">
+                      {{ alert.time }}<br>
+                    </div>
+                    <div class="alertInfos">
+                      zone {{ alert.zone }}<br>
+                      {{ alert.label}}
+                    </div>
                   </div>
                 </button>
               </section>
@@ -103,7 +107,14 @@ module.exports = {
 
   .alertContent {
     word-break: break-all;
+  }
+
+  .alertTime {
     text-align: left;
+  }
+
+  .alertInfos {
+    text-align: center;
   }
 
   .button {
