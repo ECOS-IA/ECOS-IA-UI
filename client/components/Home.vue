@@ -38,7 +38,7 @@
               </div>
 
               <div v-else-if="historyAlert.id" class="savedAlert">
-                <p>Alerte détectée le {{ historyAlert.time }} en zone {{ historyAlert.zone }}</p>
+                <p>Alerte détectée le {{ historyAlert.time }} en zone {{ historyAlert.zone }} : {{ historyAlert.label}}</p>
                 <button @click="quit()" >
                   <div class="close">
                     <span></span>
